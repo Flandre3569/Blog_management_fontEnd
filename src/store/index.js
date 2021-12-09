@@ -1,6 +1,5 @@
 import { createStore } from 'vuex';
 import login from './login/login.js';
-import register from './register/register.js';
 
 const store = createStore({
   namespaced: 'home',
@@ -12,8 +11,7 @@ const store = createStore({
   mutations: {},
   actions: {},
   modules: {
-    login,
-    register
+    login
   }
 });
 
