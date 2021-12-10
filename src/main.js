@@ -20,5 +20,3 @@ app.use(ElementPlus);
 
 app.mount('#app');
 
-import mxRequest from './service/index';
-
