@@ -1,7 +1,7 @@
 <template>
   <div class="nav-menu">
     <div class="logo">
-      <!-- <img class="img" src="~@/assets/img/logo.svg" alt="logo" /> -->
+      <img class="img" src="~@/assets/img/logo.png" alt="logo" />
       <span class="title">博客管理系统</span>
     </div>
     <el-menu
@@ -11,17 +11,39 @@
       text-color="#ecf0f1"
       active-text-color="#d35400"
     >
-      <el-menu-item index="1">
-        <span>第三个菜单</span>
-      </el-menu-item>
+      <el-sub-menu index="1">
+        <template #title>
+          <span>信息展示</span>
+        </template>
+        <el-menu-item index="1-1">
+          <span>总览</span>
+        </el-menu-item>
+        <el-menu-item index="1-2">
+          <span>技术栈</span>
+        </el-menu-item>
+      </el-sub-menu>
 
-      <el-menu-item index="2">
-        <span>第三个菜单</span>
-      </el-menu-item>
+      <el-sub-menu index="2">
+        <template #title>
+          <span>内容管理</span>
+        </template>
+        <el-menu-item index="2-1">
+          <span>用户管理</span>
+        </el-menu-item>
+        <el-menu-item index="2-2">
+          <span>博客管理</span>
+        </el-menu-item>
+        <el-menu-item index="2-3">
+          <span>博客审核</span>
+        </el-menu-item>
+      </el-sub-menu>
 
       <!-- 一级菜单 -->
       <el-menu-item index="3">
-        <span>第三个菜单</span>
+        <span>回收站管理</span>
+      </el-menu-item>
+      <el-menu-item index="4">
+        <span>关于</span>
       </el-menu-item>
     </el-menu>
   </div>
