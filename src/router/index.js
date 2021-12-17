@@ -72,17 +72,17 @@ const router = createRouter({
 });
 
 // 守卫
-router.beforeEach((to) => {
-  if (to.path !== '/login') {
-    const token = localCache.getCache('token');
-    if (!token) {
-      return '/login';
-    }
-  }
+// router.beforeEach((to) => {
+//   if (to.path !== '/login') {
+//     const token = localCache.getCache('token');
+//     if (!token) {
+//       return '/login';
+//     }
+//   }
 
-  if (to.path === '/main') {
-    return firstMenu.url;
-  }
-});
+//   if (to.path === '/main') {
+//     return firstMenu.url;
+//   }
+// });
 
 export default router;
