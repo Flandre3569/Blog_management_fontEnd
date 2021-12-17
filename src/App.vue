@@ -1,14 +1,14 @@
 <template>
   <div class="app">
     <router-view v-slot="{ Component }">
-      <transition name="btn" mode="out-in">
+      <transition name="cartoon" mode="out-in">
         <component :is="Component" />
       </transition>
     </router-view>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -25,18 +25,18 @@ export default defineComponent({
 }
 
 /* 实现淡入淡出动画 */
-.btn-enter-from,
-.btn-leave-to {
+.cartoon-enter-from,
+.cartoon-leave-to {
   opacity: 0;
 }
 
-.btn-enter-to,
-.btn-leave-from {
+.cartoon-enter-to,
+.cartoon-leave-from {
   opacity: 1;
 }
 
-.btn-enter-active,
-.btn-leave-active {
+.cartoon-enter-active,
+.cartoon-leave-active {
   transition: opacity 1.5s ease;
 }
 /* 通过animation实现动画效果 */

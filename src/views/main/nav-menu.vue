@@ -10,15 +10,16 @@
       background-color="#34495e"
       text-color="#ecf0f1"
       active-text-color="#d35400"
+      router="true"
     >
       <el-sub-menu index="1">
         <template #title>
           <span>信息展示</span>
         </template>
-        <el-menu-item index="1-1">
+        <el-menu-item index="/overview">
           <span>总览</span>
         </el-menu-item>
-        <el-menu-item index="1-2">
+        <el-menu-item index="/technology">
           <span>技术栈</span>
         </el-menu-item>
       </el-sub-menu>
@@ -27,22 +28,25 @@
         <template #title>
           <span>内容管理</span>
         </template>
-        <el-menu-item index="2-1">
+        <el-menu-item index="/users">
           <span>用户管理</span>
         </el-menu-item>
-        <el-menu-item index="2-2">
+        <el-menu-item index="/blog">
           <span>博客管理</span>
         </el-menu-item>
-        <el-menu-item index="2-3">
+        <el-menu-item index="/check">
           <span>博客审核</span>
+        </el-menu-item>
+        <el-menu-item index="/label">
+          <span>标签管理</span>
         </el-menu-item>
       </el-sub-menu>
 
       <!-- 一级菜单 -->
-      <el-menu-item index="3">
+      <el-menu-item index="/recycleBin">
         <span>回收站管理</span>
       </el-menu-item>
-      <el-menu-item index="4">
+      <el-menu-item index="/about">
         <span>关于</span>
       </el-menu-item>
     </el-menu>
