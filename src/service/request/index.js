@@ -81,7 +81,7 @@ class MXRequest {
       if (config.showLoading === false) {
         this.showLoading = config.showLoading;
       }
-      
+
       this.instance
         .request(config)
         .then((res) => {
