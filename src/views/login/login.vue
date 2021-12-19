@@ -10,7 +10,7 @@
         </div>
       </template>
       <div class="text item">
-        <el-form :rules="rules" :model="user">
+        <el-form :rules="rules" :model="user" ref="formRef">
           <el-form-item label="账号" prop="name">
             <el-input v-model="user.name" />
           </el-form-item>
@@ -41,8 +41,6 @@ export default defineComponent({
     const formRef = ref<InstanceType<typeof ElForm>>();
 
     const loginClick = () => {
-      const token = localCache.getCache("token");
-
       formRef.value?.validate((valid: any) => {
         if (valid) {
           store.dispatch("login/userLoginAction", user);

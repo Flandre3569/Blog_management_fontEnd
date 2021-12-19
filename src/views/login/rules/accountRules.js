@@ -6,8 +6,8 @@ export const rules = {
       trigger: 'blur'
     },
     {
-      pattern: /^[a-z0-9]{5,12}$/,
-      message: '用户名必须是5-12位的数字或字母',
+      pattern: /^[a-z0-9]{4,12}$/,
+      message: '用户名必须是4-12位的数字或字母',
       trigger: 'blur'
     }
   ],
@@ -18,8 +18,8 @@ export const rules = {
       trigger: 'blur'
     },
     {
-      pattern: /^[a-z0-9]{5,12}$/,
-      message: '密码必须是5-12位的数字或字母',
+      pattern: /^[a-z0-9]{4,12}$/,
+      message: '密码必须是4-12位的数字或字母',
       trigger: 'blur'
     }
   ]

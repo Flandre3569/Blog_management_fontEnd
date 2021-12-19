@@ -7,23 +7,21 @@ const loginModules = {
   namespaced: true,
   state() {
     return {
-      token: '',
-      name: ''
+      loginStatus: ''
     };
   },
   getters: {},
   mutations: {
-    changeToken(state, token) {
-      state.token = token;
+    changeStatus(state, loginStatus) {
+      state.loginStatus = loginStatus;
     },
-    changeName(state, name) {
-      state.name = name;
-    }
+
   },
   actions: {
     async userLoginAction({ commit, dispatch }, payload) {
       const loginResult = await loginRequest(payload);
-      const { id, token, name } = loginResult.data;
+      const { data } = loginResult;
+      console.log(loginResult);
       const errorTips = () => {
         ElNotification({
           title: 'Error',
@@ -31,12 +29,11 @@ const loginModules = {
           type: 'error'
         });
       };
-      // console.log(id);
-      commit('changeToken', token);
-      commit('changeName', name);
-      if (token) {
-        localCache.setCache('token', token);
-        localCache.setCache('name', name);
+
+      commit('changeStatus', data);
+
+      if (data) {
+        localCache.setCache('loginStatus', data);
         router.push('/main');
       } else {
         errorTips();

@@ -18,12 +18,18 @@
         </template>
         <template #default="scope">
           <el-button size="mini" @click="edit(scope.row)">Edit</el-button>
-          <el-button
-            size="mini"
-            type="danger"
-            @click="handleDelete(scope.$index, scope.row)"
-            >Delete</el-button
+
+          <el-popconfirm
+            confirm-button-text="OK"
+            cancel-button-text="No, Thanks"
+            icon-color="red"
+            title="Are you sure to delete this?"
+            @confirm="handleDelete(scope.row)"
           >
+            <template #reference>
+              <el-button size="mini" type="danger">Delete</el-button>
+            </template>
+          </el-popconfirm>
         </template>
       </el-table-column>
     </el-table>
@@ -114,7 +120,7 @@
 
 <script>
 import mxRequest from "@/service/index";
-import { reactive, toRefs } from "vue";
+import { reactive, toRefs, ref } from "vue";
 import { ElNotification } from "element-plus";
 
 export default {
@@ -163,6 +169,7 @@ export default {
     });
     return {
       usersData: reactive([]),
+
       ...toRefs(state),
       search: "",
       total: null,
@@ -255,6 +262,19 @@ export default {
         });
       this.dialogUpdateForm = false;
       this.$router.go(0);
+    },
+    // 删除用户
+    handleDelete(row) {
+      const _this = this;
+      mxRequest
+        .delete({
+          url: "users/delete/" + row.id,
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            this.$router.go(0);
+          }
+        });
     },
   },
 };
