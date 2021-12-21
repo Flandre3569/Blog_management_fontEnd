@@ -16,7 +16,7 @@
       <el-table-column label="UpdateAt" prop="updateAt" />
       <el-table-column align="right">
         <template #header>
-          <el-input v-model="search" size="mini" placeholder="Type to search" />
+          <el-input v-model="search" size="mini" placeholder="Search by name" />
         </template>
         <template #default="scope">
           <el-button size="mini" @click="edit(scope.row)">Edit</el-button>
@@ -192,6 +192,7 @@ export default {
             })
             .then((res) => {
               if (res.data === "success") {
+                this.usersData.splice(this.usersData.length, 0, _this.userForm);
                 ElNotification({
                   title: "Success",
                   message: "add successfully",
@@ -250,7 +251,12 @@ export default {
         })
         .then((res) => {
           if (res.status === 200) {
-            this.$router.go(0);
+            this.usersData.splice(this.usersData.indexOf(row), 1);
+            ElNotification({
+              title: "Success",
+              message: "删除成功",
+              type: "success",
+            });
           }
         });
     },

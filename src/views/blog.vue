@@ -18,12 +18,18 @@
             <el-descriptions-item label="id:">{{
               blog.id
             }}</el-descriptions-item>
+            <el-descriptions-item label="createAt:">{{
+              blog.createAt
+            }}</el-descriptions-item>
+            <el-descriptions-item label="updateAt:">{{
+              blog.updateAt
+            }}</el-descriptions-item>
             <el-descriptions-item label="author:">{{
-              blog.author.name
+              blog.author
             }}</el-descriptions-item>
 
             <el-descriptions-item label="label:">
-              <el-tag size="small">{{ blog.label.name }}</el-tag>
+              <el-tag size="small">{{ blog.label }}</el-tag>
             </el-descriptions-item>
             <el-descriptions-item label="content:">{{
               blog.content
@@ -56,11 +62,11 @@ export default {
     const _this = this;
     mxRequest
       .get({
-        url: "blog/selectAll/1/5",
+        url: "blog/selectBlog/1/5",
       })
       .then((res) => {
-        _this.blogData = res.data.content;
-        _this.total = res.data.totalElements;
+        _this.blogData = res.data.list;
+        _this.total = res.data.total;
         _this.numberOfElements = res.data.totalElements;
       });
   },
@@ -77,22 +83,22 @@ export default {
       const _this = this;
       mxRequest
         .get({
-          url: "blog/selectAll/" + currentPage + "/5",
+          url: "blog/selectBlog/" + currentPage + "/5",
         })
         .then((res) => {
-          _this.blogData = res.data.content;
-          _this.total = res.data.totalElements;
+          _this.blogData = res.data.list;
+          _this.total = res.data.total;
           _this.numberOfElements = res.data.totalElements;
         });
     },
     deleteBlog(blog) {
       mxRequest
         .delete({
-          url: "blog/delete/" + blog.id,
+          url: "blog/deleteBlog/" + blog.id,
         })
         .then((res) => {
-          if (res.status === 200) {
-            this.dynamicTags.splice(this.dynamicTags.indexOf(blog), 1);
+          if (res.data === "success") {
+            this.blogData.splice(this.blogData.indexOf(blog), 1);
             ElNotification({
               title: "Success",
               message: "删除成功",

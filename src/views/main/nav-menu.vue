@@ -44,7 +44,7 @@
 
       <!-- 一级菜单 -->
       <el-menu-item index="/recycleBin">
-        <span>回收站管理</span>
+        <span>操作日志</span>
       </el-menu-item>
       <el-menu-item index="/about">
         <span>关于</span>
