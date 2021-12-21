@@ -42,9 +42,9 @@ const routes = [
         component: () => import('@/views/label.vue')
       },
       {
-        path: '/recycleBin',
-        name: 'RecycleBin',
-        component: () => import('@/views/recycleBin.vue')
+        path: '/dialog',
+        name: 'Dialog',
+        component: () => import('@/views/dialog.vue')
       },
       {
         path: '/about',

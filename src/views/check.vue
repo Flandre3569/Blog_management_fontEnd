@@ -64,7 +64,21 @@ export default {
   },
   methods: {
     handleEdit(index, row) {
-      console.log(index, row);
+      mxRequest
+        .post({
+          url: "/blog/checkAccess",
+          data: row,
+        })
+        .then((res) => {
+          if (res.data === "success") {
+            this.tableData.splice(this.tableData.indexOf(row), 1);
+            ElNotification({
+              title: "Success",
+              message: "审核成功",
+              type: "success",
+            });
+          }
+        });
     },
     handleDelete(index, row) {
       mxRequest

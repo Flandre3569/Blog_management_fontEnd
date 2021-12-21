@@ -62,6 +62,7 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   background-image: url("http://mingxuan3569.oss-cn-beijing.aliyuncs.com/image/bg.2cfdbb33.svg");
+  background-size: cover;
 }
 .card-header {
   display: flex;

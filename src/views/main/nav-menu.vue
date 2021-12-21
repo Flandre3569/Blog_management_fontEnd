@@ -43,7 +43,7 @@
       </el-sub-menu>
 
       <!-- 一级菜单 -->
-      <el-menu-item index="/recycleBin">
+      <el-menu-item index="/dialog">
         <span>操作日志</span>
       </el-menu-item>
       <el-menu-item index="/about">

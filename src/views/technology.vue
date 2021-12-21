@@ -2,8 +2,9 @@
   <div class="technology">
     <hy-card title="关于">
       <div class="c-left">
-        Blog Management System 是基于 Vue3、Vuex、VueRouter、Vite、 ElementPlus
-        、JavaScript、Echart5、Springboot、mybatis、jpa 等后台系统解决方案。
+        Blog Management System 是基于 Vue3、Vue2、Vuex、VueRouter、Vite、
+        ElementPlus 、JavaScript、Echart5、Springboot、mybatis、jpa
+        等后台系统解决方案。
       </div>
     </hy-card>
 
@@ -33,7 +34,7 @@
         :table-datas="[
           { name: '文件夹', description: '统一小写, 多个单词使用-分割' },
           {
-            name: '文件(.ts .vue .json .d.ts)',
+            name: '文件(.js .vue .json .java)',
             description: '统一小写, 多个单词使用-分割',
           },
         ]"

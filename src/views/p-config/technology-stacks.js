@@ -1,12 +1,12 @@
 export const technologyStacks = [
   {
-    title: '开发工具',
+    title: '前端工具',
     desp: 'Visual Studio Code'
   },
 
   {
     title: '编程语言',
-    desp: 'TypeScript 4.x + JavaScript'
+    desp: 'SpringBoot + JavaScript'
   },
 
   {
@@ -65,19 +65,10 @@ export const technologyStacks = [
   },
 
   {
-    title: 'Git Hook 工具',
-    desp: 'husky'
-  },
-
-  {
     title: '代码规范',
     desp: 'EditorConfig + Prettier + ESLint'
   },
 
-  {
-    title: '提交规范',
-    desp: 'Commitizen + Commitlint'
-  },
 
   {
     title: '自动部署',

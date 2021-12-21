@@ -1,7 +1,7 @@
 export const devDependencies = [
   {
-    name: 'typescript',
-    description: '^4.1.3'
+    name: 'Vue',
+    description: '^3.0.0'
   },
   {
     name: 'webpack',

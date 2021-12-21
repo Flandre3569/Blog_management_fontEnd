@@ -5,7 +5,10 @@
         <nav-menu></nav-menu>
       </el-aside>
       <el-container class="page">
-        <el-header class="page-header"> </el-header>
+        <el-header class="page-header">
+          <el-page-header :content="this.$route.name" @back="goBack" />
+          <user-info />
+        </el-header>
         <el-main class="page-content">
           <div class="page-router">
             <router-view></router-view>
@@ -20,13 +23,22 @@
 import { defineComponent } from "vue";
 import { ref } from "vue";
 import navMenu from "./nav-menu.vue";
+import userInfo from "./user-info.vue";
 
 export default defineComponent({
   components: {
     navMenu,
+    userInfo,
   },
   setup() {
-    return {};
+    return {
+      visible: ref(false),
+    };
+  },
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    },
   },
 });
 </script>
@@ -62,6 +74,9 @@ export default defineComponent({
 
 .el-header {
   height: 48px !important;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .el-aside {
@@ -84,5 +99,10 @@ export default defineComponent({
   color: #333;
   text-align: center;
   background-color: #f0f2f5;
+}
+
+.el-avatar {
+  margin-right: 20px;
+  cursor: pointer;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>recycleBin</div>
+  <div>Dialog</div>
 </template>
 
 <script>
