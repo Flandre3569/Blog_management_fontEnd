@@ -12,6 +12,8 @@
       <el-table-column label="Id" prop="id" />
       <el-table-column label="Name" prop="name" />
       <el-table-column label="Password" prop="password" />
+      <el-table-column label="CreateAt" prop="createAt" />
+      <el-table-column label="UpdateAt" prop="updateAt" />
       <el-table-column align="right">
         <template #header>
           <el-input v-model="search" size="mini" placeholder="Type to search" />
@@ -105,15 +107,6 @@
           </el-form-item>
         </el-form>
       </el-dialog>
-      <!-- 分页 -->
-      <el-pagination
-        background
-        layout="prev, pager, next"
-        :page-size="15"
-        :total="total"
-        @current-change="pageChange"
-      >
-      </el-pagination>
     </div>
   </div>
 </template>
@@ -132,11 +125,10 @@ export default {
     const _this = this;
     mxRequest
       .get({
-        url: "users/selectAll/1/15",
+        url: "user/selectAll",
       })
       .then((res) => {
-        _this.usersData = res.data.content;
-        _this.total = res.data.totalElements;
+        _this.usersData = res.data;
       });
   },
   data() {
@@ -169,10 +161,8 @@ export default {
     });
     return {
       usersData: reactive([]),
-
       ...toRefs(state),
       search: "",
-      total: null,
       userForm: {
         name: "",
         password: "",
@@ -190,18 +180,6 @@ export default {
     };
   },
   methods: {
-    // 分页配置设置
-    pageChange(currentPage) {
-      const _this = this;
-      mxRequest
-        .get({
-          url: "users/selectAll/" + currentPage + "/15",
-        })
-        .then((res) => {
-          _this.usersData = res.data.content;
-          _this.total = res.data.totalElements;
-        });
-    },
     // 添加用户弹窗设置
     submitForm(formName) {
       const _this = this;

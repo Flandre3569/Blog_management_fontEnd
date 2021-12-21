@@ -3,18 +3,29 @@
     <el-row :gutter="20">
       <el-col :span="24" v-for="blog in blogData" :key="blog.id"
         ><el-card shadow="hover">
-          <el-descriptions title="BlogName">
-            <el-descriptions-item label="Id">{{
+          <el-descriptions
+            :title="blog.name"
+            class="margin-top"
+            :column="3"
+            :size="size"
+            border
+          >
+            <template #extra>
+              <el-button type="primary" size="small" @click="deleteBlog(blog)"
+                >删除博客</el-button
+              >
+            </template>
+            <el-descriptions-item label="id:">{{
               blog.id
             }}</el-descriptions-item>
-            <el-descriptions-item label="author">{{
-              blog.author_id
+            <el-descriptions-item label="author:">{{
+              blog.author.name
             }}</el-descriptions-item>
 
-            <el-descriptions-item label="Label">
-              <el-tag size="small">{{ blog.label_id }}</el-tag>
+            <el-descriptions-item label="label:">
+              <el-tag size="small">{{ blog.label.name }}</el-tag>
             </el-descriptions-item>
-            <el-descriptions-item label="content">{{
+            <el-descriptions-item label="content:">{{
               blog.content
             }}</el-descriptions-item>
           </el-descriptions></el-card
@@ -26,8 +37,9 @@
     <el-pagination
       background
       layout="prev, pager, next"
-      :page-size="15"
+      :page-size="5"
       :total="total"
+      @current-change="pageChange"
     >
       >
     </el-pagination>
@@ -37,6 +49,8 @@
 <script>
 import { ElNotification } from "element-plus";
 import mxRequest from "@/service/index";
+import { ref } from "vue";
+
 export default {
   created() {
     const _this = this;
@@ -53,8 +67,40 @@ export default {
   data() {
     return {
       blogData: [],
-      numberOfElements: 0,
+      numberOfElements: ref(0),
+      total: ref(0),
+      size: ref(""),
     };
+  },
+  methods: {
+    pageChange(currentPage) {
+      const _this = this;
+      mxRequest
+        .get({
+          url: "blog/selectAll/" + currentPage + "/5",
+        })
+        .then((res) => {
+          _this.blogData = res.data.content;
+          _this.total = res.data.totalElements;
+          _this.numberOfElements = res.data.totalElements;
+        });
+    },
+    deleteBlog(blog) {
+      mxRequest
+        .delete({
+          url: "blog/delete/" + blog.id,
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            this.dynamicTags.splice(this.dynamicTags.indexOf(blog), 1);
+            ElNotification({
+              title: "Success",
+              message: "删除成功",
+              type: "success",
+            });
+          }
+        });
+    },
   },
 };
 </script>
@@ -85,5 +131,10 @@ export default {
 .row-bg {
   padding: 10px 0;
   background-color: #f9fafc;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>

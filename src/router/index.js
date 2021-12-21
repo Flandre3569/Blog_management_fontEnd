@@ -75,7 +75,7 @@ const router = createRouter({
 router.beforeEach((to) => {
   if (to.path !== '/login') {
     const loginStatus = localCache.getCache('loginStatus');
-    if (!loginStatus) {
+    if (loginStatus !== 'success') {
       return '/login';
     }
   }

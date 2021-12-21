@@ -17,6 +17,7 @@
       class="input-new-tag"
       size="medium"
       @keyup.enter="handleInputConfirm"
+      @blur="inputVisible = false"
     >
     </el-input>
     <el-button v-else class="button-new-tag" size="medium" @click="showInput"
@@ -86,12 +87,12 @@ export default {
 <style lang ="less" scoped>
 .el-tag + .el-tag {
   /* margin-left: 100px; */
-  margin: 100px;
+  margin: 50px;
 }
 .button-new-tag {
   margin-left: 100px;
-  height: 50px;
-  line-height: 50px;
+  height: 30px;
+  line-height: 30px;
   padding-top: 0;
   padding-bottom: 0;
 }
