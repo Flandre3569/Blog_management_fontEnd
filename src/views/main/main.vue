@@ -11,7 +11,11 @@
         </el-header>
         <el-main class="page-content">
           <div class="page-router">
-            <router-view></router-view>
+            <router-view v-slot="{ Component }">
+              <transition name="cartoon" mode="out-in">
+                <component :is="Component" />
+              </transition>
+            </router-view>
           </div>
         </el-main>
       </el-container>
@@ -104,5 +108,21 @@ export default defineComponent({
 .el-avatar {
   margin-right: 20px;
   cursor: pointer;
+}
+
+/* 实现淡入淡出动画 */
+.cartoon-enter-from,
+.cartoon-leave-to {
+  opacity: 0;
+}
+
+.cartoon-enter-to,
+.cartoon-leave-from {
+  opacity: 1;
+}
+
+.cartoon-enter-active,
+.cartoon-leave-active {
+  transition: opacity 0.5s ease;
 }
 </style>

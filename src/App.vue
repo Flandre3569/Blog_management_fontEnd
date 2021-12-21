@@ -37,7 +37,7 @@ export default defineComponent({
 
 .cartoon-enter-active,
 .cartoon-leave-active {
-  transition: opacity 1.5s ease;
+  transition: opacity 1s ease;
 }
 /* 通过animation实现动画效果 */
 // .btn-enter-active {

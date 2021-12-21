@@ -32,7 +32,7 @@ import { useRouter } from "vue-router";
 export default defineComponent({
   setup() {
     const store = useStore();
-    const name = computed(() => store.state.login.name);
+    const name = localCache.getCache("name");
     const router = useRouter();
     const handleExitClick = () => {
       localCache.deleteCache("loginStatus");
