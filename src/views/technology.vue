@@ -22,11 +22,7 @@
         :table-datas="devDependencies"
       />
     </hy-card>
-    <hy-card title="项目结构">
-      <div class="c-left">
-        <hy-descriptions language="bash" :code="projectDir" />
-      </div>
-    </hy-card>
+
     <hy-card title="项目规范">
       <hy-descriptions
         title="文件命名规范"

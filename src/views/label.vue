@@ -84,7 +84,7 @@ export default {
 };
 </script>
 
-<style lang ="less" scoped>
+<style lang="less" scoped>
 .el-tag + .el-tag {
   /* margin-left: 100px; */
   margin: 50px;
