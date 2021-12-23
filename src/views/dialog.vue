@@ -1,5 +1,5 @@
 <template>
-  <div>后台显示</div>
+  <div><h1>后台显示</h1></div>
 </template>
 
 <script>

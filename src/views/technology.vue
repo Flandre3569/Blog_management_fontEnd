@@ -1,14 +1,14 @@
 <template>
   <div class="technology">
-    <hy-card title="关于">
+    <mx-card title="关于">
       <div class="c-left">
         Blog Management System 是基于 Vue3、Vue2、Vuex、VueRouter、Vite、
         ElementPlus 、JavaScript、Echart5、Springboot、mybatis、jpa
         等后台系统解决方案。
       </div>
-    </hy-card>
+    </mx-card>
 
-    <hy-card title="技术栈">
+    <mx-card title="技术栈">
       <hy-text-link :text-arrs="technologyStacks" />
       <hy-descriptions
         title="生产环境依赖"
@@ -16,14 +16,14 @@
         :table-datas="dependencies"
       />
 
-      <hy-descriptions
+      <mx-descriptions
         title="开发环境依赖"
         :column="2"
         :table-datas="devDependencies"
       />
-    </hy-card>
+    </mx-card>
 
-    <hy-card title="项目规范">
+    <mx-card title="项目规范">
       <hy-descriptions
         title="文件命名规范"
         :column="1"
@@ -35,7 +35,7 @@
           },
         ]"
       />
-      <hy-descriptions
+      <mx-descriptions
         title="编写组件规范"
         :column="1"
         :table-datas="[
@@ -74,10 +74,10 @@
           },
         ]"
       />
-    </hy-card>
+    </mx-card>
 
-    <hy-card title="Git提交规范">
-      <hy-descriptions
+    <mx-card title="Git提交规范">
+      <mx-descriptions
         :column="1"
         :table-datas="[
           { name: 'add 操作', description: 'git add ' },
@@ -86,14 +86,14 @@
           { name: 'push 操作', description: 'git push ' },
         ]"
       />
-    </hy-card>
+    </mx-card>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import HyDescriptions from "@/components/descriptions/index";
-import HyCard from "@/components/card/index";
+import MxDescriptions from "@/components/descriptions/index";
+import MxCard from "@/components/card/index";
 import {
   technologyStacks,
   dependencies,
@@ -102,8 +102,8 @@ import {
 } from "./p-config";
 export default defineComponent({
   components: {
-    HyDescriptions,
-    HyCard,
+    MxDescriptions,
+    MxCard,
   },
 
   setup() {

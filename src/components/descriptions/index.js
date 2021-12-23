@@ -1,2 +1,2 @@
-import HyDescriptions from './src/index.vue';
-export default HyDescriptions;
+import MxDescriptions from './src/index.vue';
+export default MxDescriptions;

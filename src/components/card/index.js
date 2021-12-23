@@ -1,3 +1,3 @@
-import HyCard from './src/card.vue';
+import MxCard from './src/card.vue';
 
-export default HyCard;
+export default MxCard;
