@@ -3,10 +3,13 @@ export const technologyStacks = [
     title: '前端工具',
     desp: 'Visual Studio Code'
   },
-
+  {
+    titke: '后端工具',
+    desp:'idea + datagrips + postman'
+  },
   {
     title: '编程语言',
-    desp: 'SpringBoot + JavaScript'
+    desp: 'Java + JavaScript'
   },
 
   {
@@ -18,7 +21,10 @@ export const technologyStacks = [
     title: '前端框架',
     desp: 'Vue 3.x'
   },
-
+  {
+    title: '后端框架',
+    desp: 'SpringBoot'
+  },
   {
     title: '路由工具',
     desp: 'Vue Router 4.x'
@@ -42,16 +48,6 @@ export const technologyStacks = [
   {
     title: '富文本',
     desp: 'WangEditor'
-  },
-
-  {
-    title: '工具库',
-    desp: ' @vueuse/core + dayjs + countup.js'
-  },
-
-  {
-    title: '数据模拟',
-    desp: 'mockjs'
   },
 
   {

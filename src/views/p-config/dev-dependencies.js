@@ -1,17 +1,28 @@
 export const devDependencies = [
   {
     name: 'Vue',
-    description: '^3.0.0'
-  },
-  {
-    name: 'webpack',
-    description: '5'
+    description: '^3.2.16'
   },
   {
     name: 'vite',
     description: '^2.2.3'
   },
-
+  {
+    name: 'SpringBoot',
+    description: '2.5.6'
+  },
+  {
+    name: 'mybatis',
+    description: '2.2.0'
+  },
+  {
+    name: 'pagehelper',
+    description: '1.2.12'
+  },
+  {
+    name: 'fastjson',
+    description:'1.2.15'
+  },
   {
     name: 'eslint',
     description: '^7.25.0'
@@ -25,37 +36,14 @@ export const devDependencies = [
     description: '^13.13.0'
   },
   {
-    name: 'husky',
-    description: '^6.0.0'
+    name: 'axios',
+    description: '^0.24.0'
   },
   {
     name: 'lint-staged',
     description: '^10.5.4'
   },
-  {
-    name: 'rimraf',
-    description: '^3.0.2'
-  },
-  {
-    name: '@commitlint/cli',
-    description: '^12.1.1'
-  },
-  {
-    name: '@commitlint/config-conventional',
-    description: '^12.1.1'
-  },
-  {
-    name: '@types/node',
-    description: '^14.14.41'
-  },
-  {
-    name: '@typescript-eslint/eslint-plugin',
-    description: '^4.22.0'
-  },
-  {
-    name: '@typescript-eslint/parser',
-    description: '^4.22.0'
-  },
+
   {
     name: '@vitejs/plugin-vue',
     description: '^1.2.2'
