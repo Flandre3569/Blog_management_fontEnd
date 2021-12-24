@@ -41,7 +41,7 @@ const loginModules = {
       commit('changeId', id);
       commit('changeName', name);
 
-      if (loginResult) {
+      if (id) {
         localCache.setCache('loginStatus', "success");
         localCache.setCache('name', name);
         localCache.setCache('id', id);

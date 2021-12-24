@@ -192,7 +192,7 @@ export default {
             })
             .then((res) => {
               if (res.data === "success") {
-                this.usersData.splice(this.usersData.length, 0, _this.userForm);
+                this.$router.go(0);
                 ElNotification({
                   title: "Success",
                   message: "add successfully",

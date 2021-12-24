@@ -214,14 +214,16 @@ export default {
 
 #lineChart,
 #pieChart {
-  height: 400px;
+  height: 500px;
 }
 #userCount,
 #blogCount,
 #labelCount {
-  height: 300px;
+  height: 200px;
   font-size: 50px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: cornflowerblue;
+  display: flex;
+  align-items: center;
 }
 </style>
