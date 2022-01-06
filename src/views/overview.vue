@@ -4,21 +4,21 @@
       <el-col :span="8"
         ><div class="grid-content bg-purple">
           <el-card shadow="always" id="userCount">
-            <h2>用户数:{{ userCount }}</h2>
+            <div class="value">用户数:{{ changeUserNumber }}</div>
           </el-card>
         </div></el-col
       >
       <el-col :span="8"
         ><div class="grid-content bg-purple">
           <el-card shadow="always" id="blogCount">
-            <h2>博客数:{{ blogCount }}</h2>
+            <div class="value">博客数:{{ changeBlogNumber }}</div>
           </el-card>
         </div></el-col
       >
       <el-col :span="8"
         ><div class="grid-content bg-purple">
           <el-card shadow="always" id="labelCount"
-            ><h2>标签数:{{ labelCount }}</h2></el-card
+            ><div class="value">标签数:{{ changeLabelNumber }}</div></el-card
           >
         </div></el-col
       >
@@ -43,9 +43,13 @@ import { ref, reactive } from "vue";
 import * as echarts from "echarts";
 import { overviewPie, overviewLine } from "./p-config/overviewPie";
 import mxRequest from "@/service/index";
+import { TweenLite, Power2, TimelineLite } from "gsap";
 export default {
   name: "hello",
   created() {},
+  // components: {
+  //   countTo,
+  // },
   data() {
     return {
       msg: "Welcome to Your Vue.js App",
@@ -56,13 +60,42 @@ export default {
       checkCount: ref(0),
       labelCount: ref(0),
       classifyBlog: reactive([]),
+      userNumber: 0,
+      blogNumber: 0,
+      labelNumber: 0,
+      NumberShow: false, //数字是否显示
     };
   },
   mounted() {
     this.drawLine();
     this.drawPie();
   },
+  computed: {
+    changeUserNumber() {
+      return this.userNumber.toFixed(2);
+    },
+    changeBlogNumber() {
+      return this.blogNumber.toFixed(2);
+    },
+    changeLabelNumber() {
+      return this.labelNumber.toFixed(2);
+    },
+  },
   methods: {
+    formatter: function (num) {
+      return num.toFixed(2);
+    },
+    //动态数字
+    DigitalLoad() {
+      // 0.5 为变化时间
+      TweenLite.to(this.$data, 1, { userNumber: this.userCount });
+      TweenLite.to(this.$data, 1, { blogNumber: this.blogCount });
+      TweenLite.to(this.$data, 1, { labelNumber: this.labelCount });
+    },
+
+    startAnimate: function () {
+      this.$refs.myNum.start();
+    },
     async drawLine() {
       const _this = this;
       await mxRequest
@@ -93,9 +126,11 @@ export default {
         .then((res) => {
           _this.labelCount = res.data;
         });
+      await this.DigitalLoad();
       // 基于准备好的dom，初始化echarts实例
       let myChart = echarts.init(document.getElementById("lineChart"));
       // 绘制图表
+
       await setTimeout(() => {
         myChart.setOption({
           title: { text: "数据统计" },
@@ -226,4 +261,20 @@ export default {
   display: flex;
   align-items: center;
 }
+// .box {
+//   width: 200px;
+//   padding: 40px 0;
+//   text-align: center;
+//   position: absolute;
+//   top: calc(50% - 50px);
+//   left: calc(50% - 50px);
+//   box-shadow: 2px 2px 3px #ccc;
+//   .value {
+//     font-size: 30px;
+//     margin-bottom: 10px;
+//     color: #409eff;
+//     //   color: #f4f4f4;
+//     //  text-shadow: -1px -1px white, 1px 1px rgb(190, 190, 190), 2px 2px #949494, 3px 3px #8d8c8c;
+//   }
+// }
 </style>

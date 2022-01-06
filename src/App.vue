@@ -9,10 +9,16 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
+import { darkTheme } from "naive-ui";
 
 export default defineComponent({
   name: "App",
+  setup() {
+    return {
+      darkTheme,
+    };
+  },
 });
 </script>
 

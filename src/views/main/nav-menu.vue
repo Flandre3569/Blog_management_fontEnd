@@ -43,11 +43,11 @@
       </el-sub-menu>
 
       <!-- 一级菜单 -->
+      <el-menu-item index="/imitate">
+        <span>模拟前台发布博客</span>
+      </el-menu-item>
       <el-menu-item index="/dialog">
         <span>操作日志</span>
-      </el-menu-item>
-      <el-menu-item index="/about">
-        <span>关于</span>
       </el-menu-item>
     </el-menu>
   </div>

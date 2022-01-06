@@ -2,9 +2,9 @@
   <div class="technology">
     <mx-card title="关于">
       <div class="c-left">
-        Blog Management System 是基于 Vue3、Vue2、Vuex、VueRouter、Vite、
-        ElementPlus 、JavaScript、Echart5、Springboot、mybatis、jpa
-        等后台系统解决方案。
+        Blog Management System 是基于 Vue3、Vuex、VueRouter、Vite、less、gsap、
+        ElementPlus、Navie UI、md-editor-v3、JavaScript、Echart5和
+        Springboot、mybatis、jpa、fastjson、pagehelper 等后台系统解决方案。
       </div>
     </mx-card>
 

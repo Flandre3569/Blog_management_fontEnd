@@ -45,6 +45,7 @@
 <script>
 import mxRequest from "@/service/index";
 import { reactive } from "vue";
+import { ElNotification } from "element-plus";
 export default {
   created() {
     const _this = this;

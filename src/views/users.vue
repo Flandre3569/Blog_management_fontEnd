@@ -39,9 +39,11 @@
     <!-- 添加用户 -->
     <div class="footer">
       <!-- Form -->
-      <el-button type="text" @click="dialogFormVisible = true"
-        >点击添加用户</el-button
-      >
+      <n-divider title-placement="left">
+        <el-button type="text" @click="dialogFormVisible = true"
+          >点击添加用户</el-button
+        >
+      </n-divider>
 
       <!-- 添加用户消息弹窗内容 -->
       <el-dialog v-model="dialogFormVisible" title="添加用户">

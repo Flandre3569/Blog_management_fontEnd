@@ -47,9 +47,9 @@ const routes = [
         component: () => import('@/views/dialog.vue')
       },
       {
-        path: '/about',
-        name: 'About',
-        component: () => import('@/views/about.vue')
+        path: '/imitate',
+        name: 'Imitate',
+        component: () => import('@/views/imitate.vue')
       }
     ],
     redirect: '/overview'

@@ -1,15 +1,17 @@
 <template>
   <div class="label">
-    <el-tag
+    <n-tag
       v-for="tag in dynamicTags"
       :key="tag.id"
       closable
       :disable-transitions="true"
       @close="handleClose(tag)"
-      size="medium"
+      size="large"
+      :type="changeType()"
+      round
     >
       {{ tag.name }}
-    </el-tag>
+    </n-tag>
     <el-input
       v-if="inputVisible"
       ref="saveTagInput"
@@ -49,7 +51,14 @@ export default {
       }),
     };
   },
+  computed: {},
   methods: {
+    changeType() {
+      let types = reactive(["success", "warning", "error", "info", "default"]);
+      let index = Math.floor(Math.random() * types.length);
+      return types[index];
+    },
+
     handleClose(tag) {
       this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1);
       mxRequest.delete({
@@ -85,7 +94,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.el-tag + .el-tag {
+.n-tag + .n-tag {
   /* margin-left: 100px; */
   margin: 50px;
 }
@@ -101,7 +110,7 @@ export default {
   margin-left: 10px;
   vertical-align: bottom;
 }
-.el-tag {
-  font-size: 20px;
+.n-tag {
+  font-size: 30px;
 }
 </style>
