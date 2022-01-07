@@ -11,6 +11,12 @@ export const projectDir = `
 │          logo.png
 │
 ├─components
+│  ├─animate
+│  │  │  index.js
+│  │  │
+│  │  └─src
+│  │          number.vue
+│  │
 │  ├─card
 │  │  │  index.js
 │  │  │
@@ -46,13 +52,13 @@ export const projectDir = `
 │      localCache.js
 │
 └─views
-    │  about.vue
     │  blog.vue
     │  check.vue
+    │  dialog.vue
+    │  imitate.vue
     │  label.vue
     │  notFound.vue
     │  overview.vue
-    │  recycleBin.vue
     │  technology.vue
     │  users.vue
     │
@@ -65,11 +71,13 @@ export const projectDir = `
     ├─main
     │      main.vue
     │      nav-menu.vue
+    │      user-info.vue
     │
     └─p-config
             dependencies.js
             dev-dependencies.js
             index.js
+            overviewPie.js
             project-dir.js
             technology-stacks.js
 `;
